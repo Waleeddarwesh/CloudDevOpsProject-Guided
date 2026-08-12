@@ -1,13 +1,13 @@
-# The workspace is where the reader builds. Their work is theirs — this repo
-# ships the guides and the empty directory structure, nothing else.
+# The workspace deliberately has no ignore rule of its own here.
 #
-# Ignore the *contents* of each phase directory rather than the tree itself.
-# `workspace/**` excludes the directories outright, and git will not descend
-# into an excluded directory to re-include anything, so the `.gitkeep` files
-# never match and the scaffold ships shapeless: the reader clones and finds no
-# 01-Docker to work in.
-workspace/*/*
-!workspace/*/.gitkeep
+# It ships empty, so there was nothing to exclude in the first place — and
+# excluding it actively breaks the course. The README asks the reader to commit
+# after every checkpoint and to `git diff` their work against the reference
+# implementation; with `workspace/*/*` ignored, `git add .` stages nothing and
+# says nothing, so that whole working method fails silently.
+#
+# Their work belongs in their history. workspace/.gitignore already keeps the
+# dangerous things out of it — state, tfvars, keys, kubeconfig, vault password.
 
 # Terraform: provider binaries are hundreds of megabytes, and state and
 # tfvars carry account identifiers and secrets.
