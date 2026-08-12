@@ -1,0 +1,25 @@
+# Secrets — NEVER commit these
+.env
+*.tfvars
+!*.tfvars.example
+backend.hcl
+.vault_pass
+*.pem
+*.key
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+.terraform.lock.hcl
+
+# Ansible
+*.retry
+ansible.log
+.ansible_facts/
+.ansible_inventory_cache
+
+# Build output
+node_modules/
+__pycache__/
+target/

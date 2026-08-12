@@ -1,0 +1,38 @@
+# The workspace is where the reader builds. Their work is theirs — this repo
+# ships the guides and the empty directory structure, nothing else.
+#
+# Ignore the *contents* of each phase directory rather than the tree itself.
+# `workspace/**` excludes the directories outright, and git will not descend
+# into an excluded directory to re-include anything, so the `.gitkeep` files
+# never match and the scaffold ships shapeless: the reader clones and finds no
+# 01-Docker to work in.
+workspace/*/*
+!workspace/*/.gitkeep
+
+# Terraform: provider binaries are hundreds of megabytes, and state and
+# tfvars carry account identifiers and secrets.
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+*.tfvars
+!*.tfvars.example
+backend.hcl
+crash.log
+
+# Credentials and keys, in every form this project mentions them.
+*.pem
+*.key
+.env
+.env.*
+!.env.example
+kubeconfig
+*.kubeconfig
+vault-password*
+.vault_pass*
+
+# Local noise.
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
