@@ -1097,7 +1097,7 @@ spec:
                   name: http
 ```
 
-### Step 5.11 — Create Network Policies (`09-network-policies.yaml`)
+### Step 5.11 — Create Network Policies (`12-network-policies.yaml`)
 
 | Policy | Purpose |
 |---|---|
@@ -1107,10 +1107,14 @@ spec:
 | `auth-service-policy` | Only frontend → auth-service |
 | `roadmap-service-policy` | Only frontend → roadmap-service |
 | `frontend-policy` | Allow ingress from ALB |
+| `jenkins-policy` | (Reference only) Jenkins access |
+| `sonarqube-policy` | (Reference only) SonarQube access |
+
+> 💡 **Note:** The reference implementation includes manifests `09-jenkins.yaml`, `10-sonarqube.yaml`, and `11-argocd-ingress.yaml` which are optional in-cluster deployments not required for the core path.
 
 ### Step 5.12 — Create `kustomization.yaml`
 
-- List all 10 manifests as resources
+- List all 10 (or 13 if using the optional ones) manifests as resources
 - `images:` mapping service names to ECR registry URLs
 - `labels:` with `app.kubernetes.io/part-of: ivolve`, `includeSelectors: false`
 

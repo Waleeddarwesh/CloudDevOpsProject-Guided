@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🎓 Build It Yourself — Cloud DevOps Capstone
+# 🎓 Build It Yourself — Cloud DevOps Guided Capstone
 
 **A guided course where *you* write every line. Nothing is copied.**
 
@@ -26,14 +26,14 @@ two repositories next to each other:
 ```bash
 mkdir cloud-devops && cd cloud-devops
 git clone https://github.com/Waleeddarwesh/CloudDevOpsProject.git
-git clone https://github.com/Waleeddarwesh/CloudDevOpsProject-Manual.git
-cd CloudDevOpsProject-Manual
+git clone https://github.com/Waleeddarwesh/CloudDevOpsProject-Guided.git
+cd CloudDevOpsProject-Guided
 ```
 
 ```text
 cloud-devops/
 ├── CloudDevOpsProject/          the answer key      ← look here when stuck
-└── CloudDevOpsProject-Manual/   your workbench      ← you are here
+└── CloudDevOpsProject-Guided/   your workbench      ← you are here
 ```
 
 > 💡 **The reference implementation is not cheating.** Use it when you're stuck for more than 15 minutes. The goal is understanding, not suffering. But *try first* — the struggle is where the learning happens.
@@ -127,7 +127,7 @@ cd workspace/02-Terraform && terraform destroy
 You'll create files under `workspace/`. It starts empty — that's the point.
 
 ```text
-CloudDevOpsProject-Manual/
+CloudDevOpsProject-Guided/
 │
 ├── README.md               ← you are here
 ├── PROGRESS.md             ← tick things off as you go
@@ -225,6 +225,16 @@ In order:
 4. **Read the reference file's comments.** Every file in `CloudDevOpsProject/` is heavily commented with *why*, not just *what*.
 
 > 💡 **15-minute rule.** Stuck longer than 15 minutes with no new information? Look at the answer. Then close it and retype the fix from memory. You keep the learning without losing the afternoon.
+
+---
+
+## ⚖️ Differences from Reference
+
+This Guided project is designed for learning, while the reference implementation (`CloudDevOpsProject`) includes a few advanced additions that you can explore later:
+
+1. **Docker Compose Complexity:** The reference implementation's `docker-compose.yml` uses advanced YAML anchors (`x-logging`, `x-service-defaults`) to reduce duplication. The version taught here is simpler to help you understand the core mechanics first.
+2. **Additional Kubernetes Manifests:** The reference implementation deploys Jenkins and SonarQube *inside* the cluster as optional extras (manifests `09` and `10`), plus an ArgoCD Ingress (`11`). This Guided course focuses on the core path: running Jenkins directly on the EC2 instance provisioned in Module 03.
+3. **Network Policies:** Because the reference has extra manifests, it also contains 8 NetworkPolicies instead of the 6 taught here.
 
 ---
 

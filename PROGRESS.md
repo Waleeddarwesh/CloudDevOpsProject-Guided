@@ -103,13 +103,15 @@ ansible-playbook playbook.yml | tail -1
 - [ ] `06-roadmap-service.yaml` — Deployment + Service
 - [ ] `07-frontend.yaml` — Deployment + Service + NodePort
 - [ ] `08-ingress.yaml` — Ingress (`alb` class)
-- [ ] `09-network-policies.yaml` — 6 policies, default-deny baseline
+- [ ] `12-network-policies.yaml` — 8 policies, default-deny baseline
 - [ ] `kustomization.yaml`
 - [ ] AWS Load Balancer Controller installed via Helm
-- [ ] `kubectl kustomize` renders 37 resources
+- [ ] `kubectl kustomize` renders 37+ resources
 - [ ] All pods Running
 - [ ] PVC **Bound** (proves the EBS CSI driver + IRSA work)
 - [ ] **App reachable at the ALB address**
+
+> 💡 The reference also has `09-jenkins.yaml`, `10-sonarqube.yaml`, and `11-argocd-ingress.yaml` — optional in-cluster deployments. See the reference's K8s README.
 
 **Checkpoint:**
 ```bash

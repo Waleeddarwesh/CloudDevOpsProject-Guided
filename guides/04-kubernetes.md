@@ -6,7 +6,7 @@
 
 ## 🎯 What you'll build
 
-37 objects, layered from the ground up:
+37+ objects, layered from the ground up:
 
 ```text
 00-namespace.yaml         Namespace · ResourceQuota · LimitRange
@@ -18,9 +18,11 @@
 06-roadmap-service.yaml   Deployment · Service
 07-frontend.yaml          Deployment · Service · NodePort
 08-ingress.yaml           Ingress  (alb class)
-09-network-policies.yaml  6 policies, default-deny baseline
+12-network-policies.yaml  8 policies, default-deny baseline
 kustomization.yaml
 ```
+
+> 💡 **The reference implementation has 3 additional manifests** (`09-jenkins.yaml`, `10-sonarqube.yaml`, `11-argocd-ingress.yaml`) that deploy Jenkins and SonarQube *inside the cluster* and expose ArgoCD via an ALB Ingress. These are optional — the core learning path uses Jenkins on EC2 (Module 03) and SonarQube via Docker on the same EC2. Explore them after completing the core modules if you want to see in-cluster CI/CD.
 
 **Build them in order and apply as you go.** Each layer depends on the one before, and applying incrementally means you see exactly which piece breaks.
 
